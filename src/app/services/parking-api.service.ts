@@ -4,7 +4,7 @@ import {Observable} from 'rxjs';
 import {ParkingLot} from '../models/parking-lot';
 import {ParkingInfo} from '../models/parking-info';
 
-const url = 'https://perched-peacock-api.herokuapp.com:49492';
+const url = 'https://perched-peacock-api.herokuapp.com';
 
 @Injectable({
   providedIn: 'root'

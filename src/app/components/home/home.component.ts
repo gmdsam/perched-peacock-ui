@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  private _filter(event: any) {
+  public _filter(event: any) {
     const filterValue = event.target.value.toLowerCase();
     this.filteredOptions = this.options
       .filter(option => option.city.toLowerCase().includes(filterValue) ||
