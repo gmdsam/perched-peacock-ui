@@ -1,8 +1,10 @@
 export class ParkingInfo {
-  arrival: string;
-  departure: string;
+  arrivalDate: Date;
+  arrivalTime: string;
+  departureDate: Date;
+  departureTime: string;
   vehicleType: string;
-  vehicleNumber: string;
+  vehicleNumber: number;
   locality: string;
   city: string;
 }

@@ -29,13 +29,17 @@ export class HomeComponent implements OnInit {
                     '21:00', '21:30', '22:00', '22:30', '23:00', '23:30'];
   minDate = new Date();
   location = '';
-  arrivalDate = '';
-  departureDate = '';
-  arrivalTime = '';
-  departureTime = '';
-  vehicleType = 'car';
   availability: any;
-  parkingInfo: ParkingInfo;
+  parkingInfo: ParkingInfo = {
+    arrivalDate: null,
+    arrivalTime: '',
+    departureDate: null,
+    departureTime: '',
+    vehicleNumber: 0,
+    vehicleType: 'car',
+    locality: '',
+    city: ''
+  };
 
   ngOnInit(): void {
     this.parkingService.getParkingLots().subscribe(response => {
@@ -52,22 +56,26 @@ export class HomeComponent implements OnInit {
   }
 
   isValid() {
-    let value = this.arrivalDate > this.departureDate;
+    let value = this.parkingInfo.arrivalDate > this.parkingInfo.departureDate;
     if (!value) {
-      value = this.arrivalDate < this.departureDate;
+      value = this.parkingInfo.arrivalDate < this.parkingInfo.departureDate;
       if (!value) {
-        value = this.arrivalTime < this.departureTime;
+        value = this.parkingInfo.arrivalTime < this.parkingInfo.departureTime;
       }
     } else {
       value = false;
     }
-    return !!this.location && !!this.arrivalDate && !!this.arrivalTime && !!this.departureDate && !!this.departureTime && value;
+    return !!this.location && !!this.parkingInfo.arrivalDate && !!this.parkingInfo.arrivalTime && !!this.parkingInfo.departureDate &&
+      !!this.parkingInfo.departureTime && value;
   }
 
   setParkingInfo() {
-    console.log(true);
+    [this.parkingInfo.locality, this.parkingInfo.city] = this.location.split(', ');
   }
   checkAvailability(): void {
     this.setParkingInfo();
+    this.parkingService.checkParking(this.parkingInfo).subscribe(response => {
+      this.availability = response;
+    });
   }
 }

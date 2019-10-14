@@ -17,7 +17,7 @@
     <div class="row">
       <mat-form-field class="full-width" appearance="outline">
         <mat-label>Arriving on</mat-label>
-        <input matInput [min]="minDate" [matDatepicker]="pickerArrival" (click)="pickerArrival.open()" [(ngModel)]="arrivalDate" name="arrivalDate" readonly>
+        <input matInput [min]="minDate" [matDatepicker]="pickerArrival" (click)="pickerArrival.open()" [(ngModel)]="parkingInfo.arrivalDate" name="arrivalDate" readonly>
         <mat-datepicker-toggle matSuffix [for]="pickerArrival"></mat-datepicker-toggle>
         <mat-datepicker touchUi #pickerArrival></mat-datepicker>
       </mat-form-field>
@@ -25,7 +25,7 @@
     <div class="row">
       <mat-form-field class="full-width" appearance="outline">
         <mat-label>In Time</mat-label>
-        <input matInput [matAutocomplete]="autoArrival" [(ngModel)]="arrivalTime" name="arrivalTime">
+        <input matInput [matAutocomplete]="autoArrival" [(ngModel)]="parkingInfo.arrivalTime" name="arrivalTime">
         <mat-icon matSuffix>access_time</mat-icon>
         <mat-autocomplete #autoArrival="matAutocomplete">
           <mat-option *ngFor="let option of time" [value]="option">
@@ -39,7 +39,7 @@
     <div class="row">
       <mat-form-field class="full-width" appearance="outline">
         <mat-label>Leaving on</mat-label>
-        <input matInput [min]="minDate" [matDatepicker]="pickerDeparture" (click)="pickerDeparture.open()" [(ngModel)]="departureDate" name="departureDate" readonly>
+        <input matInput [min]="minDate" [matDatepicker]="pickerDeparture" (click)="pickerDeparture.open()" [(ngModel)]="parkingInfo.departureDate" name="departureDate" readonly>
         <mat-datepicker-toggle matSuffix [for]="pickerDeparture"></mat-datepicker-toggle>
         <mat-datepicker touchUi #pickerDeparture></mat-datepicker>
       </mat-form-field>
@@ -47,7 +47,7 @@
     <div class="row">
       <mat-form-field class="full-width" appearance="outline">
         <mat-label>Out Time</mat-label>
-        <input type="text" aria-label="Number" matInput [matAutocomplete]="autoDeparture" [(ngModel)]="departureTime" name="departureTime">
+        <input type="text" aria-label="Number" matInput [matAutocomplete]="autoDeparture" [(ngModel)]="parkingInfo.departureTime" name="departureTime">
         <mat-icon matSuffix>access_time</mat-icon>
         <mat-autocomplete #autoDeparture="matAutocomplete">
           <mat-option *ngFor="let option of time" [value]="option">
