@@ -2,7 +2,7 @@
 
 A simple web application to check availability of parking space among the parking lots provided by the company and book the same.
 
-#### !! Backend Repository !!: https://github.com/gmdsam/perched-peacock-api
+#### Backend Repository: https://github.com/gmdsam/perched-peacock-api
 
 ### See it LIVE! : https://perched-peacock-ui.herokuapp.com/
 
