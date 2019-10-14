@@ -1,6 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatIconModule, MatFormFieldModule, MatAutocompleteModule, MatInputModule } from '@angular/material';
+import {
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatIconModule,
+  MatFormFieldModule,
+  MatAutocompleteModule,
+  MatInputModule,
+  MatGridListModule,
+  MatButtonModule, ErrorStateMatcher, ShowOnDirtyErrorStateMatcher
+} from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -21,16 +30,23 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     HttpClientModule,
     MatAutocompleteModule,
+    MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    ReactiveFormsModule
+    MatNativeDateModule,
+    ReactiveFormsModule,
+    MatGridListModule,
+    MatButtonModule
   ],
   exports: [
     MatAutocompleteModule,
+    MatDatepickerModule,
     MatFormFieldModule
   ],
-  providers: [],
+  providers: [
+    {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

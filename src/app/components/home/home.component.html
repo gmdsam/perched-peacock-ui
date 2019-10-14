@@ -1,15 +1,66 @@
-<div class="content">
-  <div class=""></div>
-  <form class="example-form">
-    <mat-form-field class="example-full-width" appearance="outline">
-      <mat-label>Locality, City</mat-label>
-      <input type="text" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
-      <mat-icon matSuffix>search</mat-icon>
-      <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-          {{option}}
-        </mat-option>
-      </mat-autocomplete>
-    </mat-form-field>
+<div class="content center">
+  <div class="row">
+    <form class="example-form">
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Locality, City</mat-label>
+        <input type="text" aria-label="Number" matInput [matAutocomplete]="auto" (input)="_filter($event)" [(ngModel)]="location" name="location" >
+        <mat-icon matSuffix>search</mat-icon>
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+  </div>
+  <form class="date-width arrival">
+    <div class="row">
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Arriving on</mat-label>
+        <input matInput [min]="minDate" [matDatepicker]="pickerArrival" (click)="pickerArrival.open()" [(ngModel)]="arrivalDate" name="arrivalDate" readonly>
+        <mat-datepicker-toggle matSuffix [for]="pickerArrival"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #pickerArrival></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>In Time</mat-label>
+        <input matInput [matAutocomplete]="autoArrival" [(ngModel)]="arrivalTime" name="arrivalTime">
+        <mat-icon matSuffix>access_time</mat-icon>
+        <mat-autocomplete #autoArrival="matAutocomplete">
+          <mat-option *ngFor="let option of time" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
   </form>
+  <form class="date-width departure">
+    <div class="row">
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Leaving on</mat-label>
+        <input matInput [min]="minDate" [matDatepicker]="pickerDeparture" (click)="pickerDeparture.open()" [(ngModel)]="departureDate" name="departureDate" readonly>
+        <mat-datepicker-toggle matSuffix [for]="pickerDeparture"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #pickerDeparture></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Out Time</mat-label>
+        <input type="text" aria-label="Number" matInput [matAutocomplete]="autoDeparture" [(ngModel)]="departureTime" name="departureTime">
+        <mat-icon matSuffix>access_time</mat-icon>
+        <mat-autocomplete #autoDeparture="matAutocomplete">
+          <mat-option *ngFor="let option of time" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+  </form>
+  <div class="row center">
+    <button class="button" mat-raised-button color="primary" (click)="checkAvailability()" [disabled]="!isValid()">Check Availability</button>
+  </div>
+  <div class="row" *ngIf="availability">
+    blahb bvlalsdjkfasjf
+  </div>
 </div>
