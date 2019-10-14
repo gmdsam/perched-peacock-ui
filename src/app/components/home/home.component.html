@@ -58,9 +58,42 @@
     </div>
   </form>
   <div class="row center">
-    <button class="button" mat-raised-button color="primary" (click)="checkAvailability()" [disabled]="!isValid()">Check Availability</button>
+    <button class="button" mat-raised-button color="primary" (click)="checkAvailability()" [disabled]="!isValid()">
+      <span style="margin: 0 10px 0 10px">Check Availability</span>
+      <mat-icon matSuffix>navigate_next</mat-icon>
+    </button>
   </div>
-  <div class="row" *ngIf="availability">
-    blahb bvlalsdjkfasjf
+  <div class="row status-true" *ngIf="availability === true">
+    <h3 style="color: #00b894">Parking is available</h3>
+    <div class="row book-block">
+      <form class="veh-num">
+        <mat-form-field appearance="outline">
+          <mat-label>Vehicle Number</mat-label>
+          <input matInput>
+          <mat-icon matSuffix>drive_eta</mat-icon>
+        </mat-form-field>
+      </form>
+      <form class="veh-type">
+        <mat-form-field appearance="outline">
+          <mat-label>Phone Number</mat-label>
+          <input matInput>
+          <mat-icon matSuffix>phone</mat-icon>
+        </mat-form-field>
+      </form>
+      <form style="padding-top: 5px">
+        <button class="button-book" mat-raised-button color="warn" (click)="book()">
+          <span style="margin: 0 10px 0 20px">
+            Book
+          </span>
+          <mat-icon class="mat-icon-size" matSuffix>done</mat-icon>
+        </button>
+      </form>
+    </div>
+  </div>
+  <div class="row status-false" *ngIf="availability === false">
+    <h3 style="color: #d63031">
+      Unfortunately parking is full here
+    </h3>
+    <mat-icon class="mat-icon-false" matSuffix>sentiment_dissatisfied</mat-icon>
   </div>
 </div>

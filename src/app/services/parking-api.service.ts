@@ -5,6 +5,7 @@ import {ParkingLot} from '../models/parking-lot';
 import {ParkingInfo} from '../models/parking-info';
 
 const url = 'https://perched-peacock-api.herokuapp.com';
+// const url = 'http://localhost:8058';
 
 @Injectable({
   providedIn: 'root'

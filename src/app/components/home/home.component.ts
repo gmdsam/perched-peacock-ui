@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
                     '21:00', '21:30', '22:00', '22:30', '23:00', '23:30'];
   minDate = new Date();
   location = '';
-  availability: any;
+  availability: boolean;
   parkingInfo: ParkingInfo = {
     arrivalDate: null,
     arrivalTime: '',
@@ -77,5 +77,9 @@ export class HomeComponent implements OnInit {
     this.parkingService.checkParking(this.parkingInfo).subscribe(response => {
       this.availability = response;
     });
+  }
+
+  book() {
+  //  todo
   }
 }
