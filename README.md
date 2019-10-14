@@ -1,27 +1,35 @@
-# PpParking
+# Perched Peacock UI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.9.
+A simple web application to check availability of parking space among the parking lots provided by the company and book the same.
 
-## Development server
+#### !! Backend Repository !!: https://github.com/gmdsam/perched-peacock-api
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### See it LIVE! : https://perched-peacock-ui.herokuapp.com/
 
-## Code scaffolding
+API Docs: https://perched-peacock-api.herokuapp.com/swagger.json
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Technical Stack
 
-## Build
+- Framework: **Angular (with Typescript)**
+- Deployment: **Docker**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### CD
 
-## Running unit tests
+- [CD] All the commits to `master` branch are being automatically deployed to heroku
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+    Config file path: `heroku.yml`
 
-## Running end-to-end tests
+### Setup guide
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+#### Running with Node [Recommended]
 
-## Further help
+1. Get Node & npm installed in your system. Recommended versions are:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- Node: 10.15.3
+- npm: 6.4.1
+
+2. Download the dependencies using the command `npm install` at the project root
+
+3. Now, start the application using the below command at the project root:
+
+- `npm start`
