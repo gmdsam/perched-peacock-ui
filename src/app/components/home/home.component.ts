@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit {
   minDate = new Date();
   location = '';
   availability: boolean;
+  booking: boolean;
   parkingInfo: ParkingInfo = {
     arrivalDate: null,
     arrivalTime: '',
@@ -37,6 +38,7 @@ export class HomeComponent implements OnInit {
     departureTime: '',
     vehicleNumber: 0,
     vehicleType: 'car',
+    phoneNumber: 0,
     locality: '',
     city: ''
   };
@@ -73,6 +75,7 @@ export class HomeComponent implements OnInit {
     [this.parkingInfo.locality, this.parkingInfo.city] = this.location.split(', ');
   }
   checkAvailability(): void {
+    this.booking = false;
     this.setParkingInfo();
     this.parkingService.checkParking(this.parkingInfo).subscribe(response => {
       this.availability = response;
@@ -80,6 +83,8 @@ export class HomeComponent implements OnInit {
   }
 
   book() {
-  //  todo
+    this.parkingService.bookParking(this.parkingInfo).subscribe(response => {
+      this.booking = response;
+    });
   }
 }
