@@ -13,7 +13,13 @@ API Docs: https://perched-peacock-api.herokuapp.com/swagger.json
 - Framework: **Angular (with Typescript)**
 - Deployment: **Docker**
 
-### CD
+### CI/CD
+
+- [CI] All the commits are being tested for docker image build & code level unit tests
+
+    Config file path: `.circleci/config.yml`
+
+    Circle CI : https://circleci.com/gh/gmdsam/perched-peacock-ui
 
 - [CD] All the commits to `master` branch are being automatically deployed to heroku
 
