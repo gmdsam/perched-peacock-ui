@@ -24,10 +24,22 @@ export class ParkingApiService {
         arrivalTime: parkingInfo.arrivalTime,
         departureDate: parkingInfo.departureDate.toDateString(),
         departureTime: parkingInfo.departureTime,
-        vehicleType: parkingInfo.vehicleType,
         locality: parkingInfo.locality,
         city: parkingInfo.city
       }
+    });
+  }
+
+  bookParking(parkingInfo: ParkingInfo): Observable<boolean> {
+    console.log(parkingInfo);
+    return this.http.post<boolean>(url + '/pp/v1/park', {
+        arrivalDate: parkingInfo.arrivalDate.toDateString(),
+        arrivalTime: parkingInfo.arrivalTime,
+        departureDate: parkingInfo.departureDate.toDateString(),
+        departureTime: parkingInfo.departureTime,
+        vehicleNumber: parkingInfo.vehicleNumber,
+        locality: parkingInfo.locality,
+        city: parkingInfo.city
     });
   }
 }

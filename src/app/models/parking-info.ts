@@ -5,6 +5,7 @@ export class ParkingInfo {
   departureTime: string;
   vehicleType: string;
   vehicleNumber: number;
+  phoneNumber: number;
   locality: string;
   city: string;
 }
